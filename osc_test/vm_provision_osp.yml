@@ -1,6 +1,5 @@
 ---
-- name: Install required version of openstacksdk
-  hosts: localhost
+- hosts: localhost
   become: yes
   tasks:
     - name: Ensure openstacksdk is at least version 1.0
@@ -8,10 +7,7 @@
         name: openstacksdk
         version: ">=1.0"
 
-- hosts: localhost
-  
-  tasks:
-    - name: Lanuch an instance
+    - name: Launch an instance
       openstack.cloud.server:
         state: present
         name: "{{ instance_name }}"
@@ -31,3 +27,4 @@
               root:password
               expire: false
       register: instance_info
+
