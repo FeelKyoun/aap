@@ -1,6 +1,13 @@
 ---
 
 - hosts: localhost
+  
+  tasks:
+    - name: Install specific version of openstacksdk
+      pip:
+        name: openstacksdk
+        version: ">=1.0"  # 원하는 버전 조건 지정
+      become: yes  # 필요에 따라 root 권한으로 실행
 
   tasks:
     - name: Lanuch an instance
